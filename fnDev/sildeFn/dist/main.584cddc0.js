@@ -120,16 +120,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"resource/js/main.js":[function(require,module,exports) {
 var ajax = new XMLHttpRequest();
 var MOVIE_URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20210101';
-var movieList = document.querySelector('.movie__list');
-fetch('./moviePoster.json').then(function (response) {
-  console.log(response.json());
-});
-var div = document.createElement('div'); // console.log(response);
-// div.appendChild(response.)
 
+var _movieList = document.querySelector('.movie__list');
 /*
     데이터 받아오기
 */
+
 
 function getData(url) {
   ajax.open('GET', url, false);
@@ -141,18 +137,20 @@ function getData(url) {
 */
 
 
-function makeList(url) {
-  var movieInfo = getData(url); // 데이터 출력 값
+function makeList() {
+  var movieInfo = getData(MOVIE_URL); // 데이터 출력 값
 
   var movieList = movieInfo.boxOfficeResult.weeklyBoxOfficeList;
   console.log(movieList);
 
-  for (var i = 0; i < movieList.lenght; i++) {
-    var template = "\n            <li>\n                \n            </li>\n        ";
+  for (var i = 0; i < movieList.length; i++) {
+    var template = "<li>\n            <div>\n                <img src={{__img__}} alt=\"\uC601\uD654\uC774\uBBF8\uC9C0\"/>\n            </div>\n        </li>";
+    template = template.replace("{{__img__}}", "../img/movie_image_".concat(i + 1, ".jpeg"));
+    _movieList.innerHTML += template;
   }
 }
 
-makeList(MOVIE_URL); // console.log(getData(MOVIE_URL));
+makeList();
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -181,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60773" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49877" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
