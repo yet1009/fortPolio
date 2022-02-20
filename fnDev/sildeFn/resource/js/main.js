@@ -20,6 +20,15 @@ function getData(url) {
 /* 
     받아온 데이터 출력 및 화면 생성
 */
+
+window.addEventListener('load', function() {
+
+    
+    makeList();
+
+
+
+})
 function makeList() {
 
     const movieInfo = getData(MOVIE_URL); // 데이터 출력 값
@@ -30,12 +39,12 @@ function makeList() {
     for(let i = 0; i < movieList.length; i++) {
 
         let template = `<li>
-            <div>
+            <div class="img_box">
                 <img src={{__img__}} alt="영화이미지"/>
             </div>
         </li>`;
 
-        template = template.replace("{{__img__}}", `../img/movie_image_${i + 1}.jpeg`);
+        template = template.replace("{{__img__}}", `./resource/img/movie_image_${i+1}.jpeg`);
         _movieList.innerHTML += template;
 
     }
@@ -43,8 +52,6 @@ function makeList() {
 
 }
 
-
-makeList();
 
 
 
