@@ -2,9 +2,115 @@
     margin: 0;
     padding: 0;
 }
+html,body { 
+    width: 100%; 
+    height: 100%; 
+}
 li {
     list-style: none;
 }
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+button {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+}
+
+.layout { 
+    height: 100%; 
+}
+
+.movie_pack {
+    overflow: hidden;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+ul.movie__list {
+
+}
+
+ul.movie__list > li {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 250px;
+}
+ul.movie__list > li:after {
+    content:'';
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.4);
+}
+
+ul.movie__list:after { 
+    content:'';
+    display: block;
+    clear: both;
+}
+ul.movie__list > li {
+    margin-right: 40px;
+}
+
+ul.movie__list > li.active { 
+    border: 4px solid #353535;
+    width: 400px;
+    height: 550px;
+    cursor: pointer;
+}
+
+ul.movie__list > li.active:after {
+    content: none;
+}
+
+ul.movie__list > li .img_box { 
+    width: auto;
+}
+
+ul.movie__list > li .img_box img {
+    width: 100%;
+}
+
+.btn { 
+    min-width: 30px; 
+    height: 30px; 
+    text-align: center; 
+}
+
+.controller { 
+    margin-top: 30px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.controller .btn { 
+    overflow: hidden; 
+    text-indent: -9999px; 
+    cursor: pointer; 
+}
+.btn_prev { 
+    background: url('../img/icon_prev.png') no-repeat center;
+    background-size: 100%; 
+}
+.btn_next { 
+    background: url('../img/icon_next.png') no-repeat center; 
+    background-size: 100%; 
+}
+
 
 
 

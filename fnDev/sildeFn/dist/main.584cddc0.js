@@ -122,6 +122,10 @@ var ajax = new XMLHttpRequest();
 var MOVIE_URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20210101';
 
 var _movieList = document.querySelector('.movie__list');
+
+var _prevBtn = document.querySelector('.btn.btn_prev');
+
+var _nextBtn = document.querySelector('.btn.btn_next');
 /*
     데이터 받아오기
 */
@@ -137,22 +141,91 @@ function getData(url) {
 */
 
 
-window.addEventListener('load', function () {
-  makeList();
-});
-
 function makeList() {
   var movieInfo = getData(MOVIE_URL); // 데이터 출력 값
 
   var movieList = movieInfo.boxOfficeResult.weeklyBoxOfficeList;
-  console.log(movieList);
 
   for (var i = 0; i < movieList.length; i++) {
     var template = "<li>\n            <div class=\"img_box\">\n                <img src={{__img__}} alt=\"\uC601\uD654\uC774\uBBF8\uC9C0\"/>\n            </div>\n        </li>";
     template = template.replace("{{__img__}}", "./resource/img/movie_image_".concat(i + 1, ".jpeg"));
     _movieList.innerHTML += template;
   }
+
+  setTotalWidth();
 }
+
+makeList();
+
+function setTotalWidth() {
+  var _list = _movieList.querySelectorAll('li');
+
+  var totalW = 0;
+
+  for (var i = 0; i < _list.length; i++) {
+    totalW += _list[i].offsetWidth + 40;
+  }
+
+  totalW = totalW + 190;
+  _movieList.style.width = totalW + 'px';
+}
+/*
+    첫번째 목록 활성화
+*/
+
+
+function activatedLi() {
+  var _list = document.querySelectorAll('.movie__list > li');
+
+  _movieList.firstElementChild.classList.add('active');
+}
+
+activatedLi();
+/*
+    다음 버튼 클릭
+*/
+
+function nextBtn() {
+  var _this = this;
+
+  var activeLi = document.querySelector('.movie__list li.active');
+  console.log(activeLi);
+  activeLi.classList.remove('active');
+  activeLi.remove();
+
+  var _clone = activeLi.cloneNode(true);
+
+  _movieList.appendChild(_clone);
+
+  _movieList.firstElementChild.classList.add('active');
+}
+
+function prevBtn() {
+  var _this = this;
+
+  var activeLi = document.querySelector('.movie__list li.active');
+
+  var _lastLi = document.querySelector('.movie__list li:last-child'); // console.log(_lastLi);
+
+
+  activeLi.classList.remove('active');
+
+  var _clone = _lastLi.cloneNode(true);
+
+  _lastLi.remove();
+
+  _movieList.prepend(_clone);
+
+  _movieList.firstElementChild.classList.add('active');
+}
+/*
+    이전 버튼 클릭
+*/
+
+
+_prevBtn.addEventListener('click', prevBtn);
+
+_nextBtn.addEventListener('click', nextBtn);
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -181,7 +254,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54517" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60839" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
