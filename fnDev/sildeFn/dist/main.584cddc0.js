@@ -121,6 +121,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var ajax = new XMLHttpRequest();
 var MOVIE_URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20210101';
 var movieList = document.querySelector('.movie__list');
+fetch('./moviePoster.json').then(function (response) {
+  console.log(response.json());
+});
+var div = document.createElement('div'); // console.log(response);
+// div.appendChild(response.)
+
 /*
     데이터 받아오기
 */
