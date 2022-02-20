@@ -85,6 +85,44 @@ ul.movie__list > li .img_box img {
     width: 100%;
 }
 
+
+ul.movie__list > li .desc_box {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+    transition: top 400ms; 
+    background-color: rgba(0,0,0, 0.75);
+}
+ul.movie__list > li:hover.active .desc_box {
+    top: 0%;
+}
+
+ul.movie__list > li .desc_box .desc { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); opacity: 0; transition-timing-function: linear; transition-delay: 200ms; }
+ul.movie__list > li .desc_box .desc dl { color: #fff; }
+
+
+ul.movie__list > li .desc_box .desc dl > dt { }
+ul.movie__list > li .desc_box .desc dl > dd { }
+ul.movie__list > li.active:hover .desc_box .desc {
+    opacity: 1;
+}
+/* ul.movie__list > li.active:hover .desc_box:after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+} */
+
+ul.movie__list > li.active:hover .desc_box .desc { 
+
+}
+
 .btn { 
     min-width: 30px; 
     height: 30px; 

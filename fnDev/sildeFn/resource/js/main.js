@@ -27,11 +27,30 @@ function makeList() {
     const movieInfo = getData(MOVIE_URL); // 데이터 출력 값
     const movieList = movieInfo.boxOfficeResult.weeklyBoxOfficeList;
 
+    console.log(movieList);
+
     for(let i = 0; i < movieList.length; i++) {
 
-        let template = `<li>
+        let template = `
+        <li>
             <div class="img_box">
                 <img src={{__img__}} alt="영화이미지"/>
+            </div>
+            <div class="desc_box">
+                <div class="desc">
+                    <dl>
+                        <dt>제목: ${movieList[i].movieNm}</dt>
+                        <dd>
+                            개봉일: ${movieList[i].openDt}
+                        </dd>
+                        <dd>
+                            순위: ${movieList[i].rank}
+                        </dd>
+                        <dd>
+                            누적관객수: ${movieList[i].audiAcc}
+                        </dd>
+                    </dl>
+                </div>
             </div>
         </li>`;
 
@@ -55,7 +74,7 @@ function setTotalWidth() {
         totalW += (_list[i].offsetWidth + 40);
     }
 
-    totalW = totalW + 190;
+    totalW = totalW + 250;
 
     _movieList.style.width = totalW + 'px';
 
@@ -85,7 +104,7 @@ function nextBtn() {
     let _this = this;
     let activeLi = document.querySelector('.movie__list li.active');
 
-    console.log(activeLi);
+    // console.log(activeLi);
     activeLi.classList.remove('active');
     activeLi.remove();
     let _clone = activeLi.cloneNode(true);
