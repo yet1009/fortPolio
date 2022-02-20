@@ -145,9 +145,10 @@ function makeList() {
   var movieInfo = getData(MOVIE_URL); // 데이터 출력 값
 
   var movieList = movieInfo.boxOfficeResult.weeklyBoxOfficeList;
+  console.log(movieList);
 
   for (var i = 0; i < movieList.length; i++) {
-    var template = "<li>\n            <div class=\"img_box\">\n                <img src={{__img__}} alt=\"\uC601\uD654\uC774\uBBF8\uC9C0\"/>\n            </div>\n        </li>";
+    var template = "\n        <li>\n            <div class=\"img_box\">\n                <img src={{__img__}} alt=\"\uC601\uD654\uC774\uBBF8\uC9C0\"/>\n            </div>\n            <div class=\"desc_box\">\n                <div class=\"desc\">\n                    <dl>\n                        <dt>\uC81C\uBAA9: ".concat(movieList[i].movieNm, "</dt>\n                        <dd>\n                            \uAC1C\uBD09\uC77C: ").concat(movieList[i].openDt, "\n                        </dd>\n                        <dd>\n                            \uC21C\uC704: ").concat(movieList[i].rank, "\n                        </dd>\n                        <dd>\n                            \uB204\uC801\uAD00\uAC1D\uC218: ").concat(movieList[i].audiAcc, "\n                        </dd>\n                    </dl>\n                </div>\n            </div>\n        </li>");
     template = template.replace("{{__img__}}", "./resource/img/movie_image_".concat(i + 1, ".jpeg"));
     _movieList.innerHTML += template;
   }
@@ -166,7 +167,7 @@ function setTotalWidth() {
     totalW += _list[i].offsetWidth + 40;
   }
 
-  totalW = totalW + 190;
+  totalW = totalW + 250;
   _movieList.style.width = totalW + 'px';
 }
 /*
@@ -188,8 +189,8 @@ activatedLi();
 function nextBtn() {
   var _this = this;
 
-  var activeLi = document.querySelector('.movie__list li.active');
-  console.log(activeLi);
+  var activeLi = document.querySelector('.movie__list li.active'); // console.log(activeLi);
+
   activeLi.classList.remove('active');
   activeLi.remove();
 
@@ -254,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60839" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60272" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
