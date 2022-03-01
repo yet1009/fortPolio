@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Font.css';
 import './App.css';
 import './Common.css';
 import { Reset } from 'styled-reset';

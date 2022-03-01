@@ -1,5 +1,5 @@
 /************************* 
-	초기설정
+	reset override
 *************************/
 * { 
 	margin: 0;
@@ -12,10 +12,51 @@ body,html {
 	line-height: 1.6 !important;
 }
 
-.root,.App { 
+#root,.App { 
 	height: 100%;
+}
+
+button {
+	display: inline-block;
+	vertical-align: middle;
+	outline: none;
+	padding: 0;
+	border: none;
+	background: transparent;
+	text-align: center;
+	cursor: pointer;
 }
 
 
 
+/********************************
+	헤더 - header
+********************************/
+#header { height: 70px; padding: 0 20px; box-sizing: border-box; background-color: #fdf7f7; }
+
+.header_wrap { position: relative; height: 100%; text-align: center; }
+.header_wrap h1 { padding: 0 120px 0 60px; box-sizing: border-box; line-height: 70px; font-size: 40px; font-weight: 700; font-family: 'DancingScript'; }
+.header_wrap .btn_box { z-index: 10; position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+.header_wrap .btn_box:last-child { left: auto; right: 0; }
+.header_wrap .btn_box > ul { font-size: 0; }
+.header_wrap .btn_box > ul > li { display: inline-block; vertical-align: middle; }
+.header_wrap .btn_box > ul > li:not(:last-child) { margin-right: 20px; }
+
+
+/*******************************
+	컨테이너 - container
+*******************************/
+
+.container { height: calc(100% - 70px); }
+.container .contents { position: relative; height: 100%; }
+
+
+.typing_wrap { position: relative; height: 100%; overflow: hidden; box-sizing: border-box;  }
+.typing_wrap .text_box { overflow-y: auto; height: 100%; padding: 20px 20px 60px; box-sizing: border-box; outline: none; }
+.typing_wrap .utility_box { z-index: 20; position: absolute; left: 0; bottom: 0; width: 100%; height: 60px; padding: 0 20px; box-sizing: border-box; background: #fdf7f7; _border-top: 1px solid #909090;  }
+.typing_wrap .utility_box .utility { height: 100%; }
+
+.typing_wrap .utility_box .utility > ul { line-height: 60px; font-size: 0; }
+.typing_wrap .utility_box .utility > ul > li { display: inline-block; margin-right: 20px; vertical-align: middle; }
+.typing_wrap .utility_box .utility > ul > li .btn { }
 

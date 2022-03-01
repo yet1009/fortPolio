@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../public/fonts/DancingScript/DancingScript-Medium.eot');
+	src: url('../public/fonts/DancingScript/DancingScript-Medium.eot?#iefix') format('embedded-opentype'),
+		url('../public/fonts/DancingScript/DancingScript-Medium.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../public/fonts/DancingScript/DancingScript-SemiBold.eot');
+	src: url('../public/fonts/DancingScript/DancingScript-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('../public/fonts/DancingScript/DancingScript-SemiBold.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'DancingScript';
+	src: url('../public/fonts/DancingScript/DancingScript-Bold.eot');
+	src: url('../public/fonts/DancingScript/DancingScript-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../public/fonts/DancingScript/DancingScript-Bold.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 700;
+}

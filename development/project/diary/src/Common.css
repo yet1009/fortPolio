@@ -1,0 +1,15 @@
+/************************************ 
+    Component
+*************************************/
+.btn { padding: 0 8px; min-height: 40px; box-sizing: border-box; }
+
+
+.btn.btn_login { width: 30px; padding: 0; background: url('../public/icon_login.png') no-repeat center; background-size: 100%; }
+.btn.btn_del { width: 46px; background: url('../public/icon_del.png') no-repeat center; background-size: 100%; }
+.btn.btn_calendar { width: 46px; background: url('../public/icon_calendar00.png') no-repeat center; background-size: 100%; }
+.btn.btn_save { width: 30px; padding: 0; background: url('../public/icon_save00.png') no-repeat center; background-size: 100%; }
+.btn.btn_font_type { width: 28px; background: url('../public/icon_fonttype.png') no-repeat center; background-size: 100%; }
+.btn.btn_font_plus { width: 28px; background: url('../public/icon_fontplus.png') no-repeat center; background-size: 100%; }
+.btn.btn_font_minus { width: 28px; background: url('../public/icon_fontminus.png') no-repeat center; background-size: 100%; }
+.btn.btn_font_underline { width: 28px; background: url('../public/icon_underline.png') no-repeat center; background-size: 100%; }
+.btn.btn_font_cancelline { width: 28px; background: url('../public/icon_linethrough.png') no-repeat center; background-size: 100%; }
