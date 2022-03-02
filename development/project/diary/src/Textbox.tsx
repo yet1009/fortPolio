@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { notEqual } from 'assert';
 import React, { useState } from 'react';
 
 
@@ -9,26 +10,57 @@ interface ClsName {
     small: string,
 }
 
-// let partData = () => {
+let txtRange = (() => {
     
-//     const selection = document.getSelection();
+    let sel: any, range: any, content: Node, node: Element;
 
-    
-// }
+    return {
 
-// partData();
+        setValue: function() {
+            sel = window.getSelection();
+
+            if(!sel) return;
+
+            range = sel.getRangeAt(0);
+            content = range.cloneContents();
+            node = document.createElement('span');
+        },
+
+        getText: function() {
+            this.setValue();
+            return sel.toString();
+        },
+        getHTML() {
+            this.setValue();
+            const span = document.createElement('span');
+            span.appendChild(content);
+            return span.innerHTML;
+        },
+        replace() {
+            this.setValue();
+            node.innerHTML = sel;
+            if(!sel.isCollapsed) {
+                
+                console.log(sel);
+                range.deleteContents();
+                range.insertNode(node);
+                
+                console.log(node);
+                if(node.className !== 'border') {
+                    node.classList.add('border')
+                }
+            }
+
+        }
+    }
+
+
+})()
 
 
 function Textbox() {
     
     let fsize: number = 16;
-
-    let getText = (e: React.MouseEvent<HTMLDivElement>) => {
-        let selection = document.getSelection();
-
-        console.log(selection?.toString());
-
-    }
 
     let SizeChange = (e: React.MouseEvent<HTMLButtonElement>) => {
 
@@ -59,7 +91,7 @@ function Textbox() {
     return(
         <div className="typing_wrap">
             
-            <div className="text_box" contentEditable="true" onMouseUp={ getText }></div>
+            <div className="text_box" contentEditable="true"></div>
             <div className="utility_box">
                 <div className="utility">
                     <ul>
@@ -75,10 +107,9 @@ function Textbox() {
                             <button type="button" className="btn btn_font_minus" title="글씨작게" onClick={ SizeChange }></button>
                         </li>
                         <li>
-                            <button type="button" className="btn btn_font_underline" title="글자밑줄"></button>
-                        </li>
-                        <li>
-                            <button type="button" className="btn btn_font_cancelline" title="글자취소줄"></button>
+                            <button type="button" className="btn btn_font_underline" title="글자밑줄" onClick = { () => {
+                                txtRange.replace()
+                            } } ></button>
                         </li>
                         <li>
                             <div className="uploadimg">
