@@ -97,7 +97,6 @@ function Textbox() {
                     <ul>
                         <li>
                             <button type="button" className="btn btn_font_type" title="글꼴설정" onClick = { () => {
-                                
                             } }></button>
                         </li>
                         <li>
