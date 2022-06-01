@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.main-bg {
+  height: 300px;
+  background: url('./shoes1.jpg') no-repeat center;
+  background-size: contain;
+}
+
+img { width: 300px; }
