@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.start {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.end {
+  opacity: 1;
+}
+
 .main-bg {
   height: 300px;
   background: url('./shoes1.jpg') no-repeat center;

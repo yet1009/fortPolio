@@ -1,12 +1,14 @@
+/* estlint-disable */
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import {Nav} from 'react-bootstrap'
 
+import { Context1 } from './../App.js';
 
 let YellowBtn = styled.button`
     background: ${ props => props.bg };
-    color: ${ props => props.bg == 'gold' ? 'white' : 'black'};
+    color: ${ props => props.bg === 'gold' ? 'white' : 'black'};
     padding: 0 10px;
 `
 let Box = styled.div`
@@ -75,7 +77,7 @@ function Details(props) {
                 </Nav.Item>
             </Nav>
             <TabContent tab={tab} />
-           
+
             
             
 
@@ -87,11 +89,11 @@ function Details(props) {
 
 function TabContent(props) {
 
-    if(props.tab == 0) {
+    if(props.tab === 0) {
         return <div>내용0</div>
-    }else if(props.tab == 1) {
+    }else if(props.tab === 1) {
         return <div>내용1</div>
-    }else if(props.tab == 2) {
+    }else if(props.tab === 2) {
         return <div>내용2</div>
     }
 
